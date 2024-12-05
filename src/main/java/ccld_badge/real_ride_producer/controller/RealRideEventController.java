@@ -21,9 +21,9 @@ public class RealRideEventController {
     }
 
     @PostMapping("/real-rider")
-    public ResponseEntity<RealRideEvent> postLibraryEvent(@RequestBody RealRideEvent realRideEvent) throws JsonProcessingException {
+    public ResponseEntity<RealRideEvent> postLibraryEvent(@RequestBody RealRideEvent realRideEvent)
+            throws JsonProcessingException {
         rideEventProducer.send(realRideEvent);
         return ResponseEntity.status(HttpStatus.CREATED).body(realRideEvent);
     }
 }
-
