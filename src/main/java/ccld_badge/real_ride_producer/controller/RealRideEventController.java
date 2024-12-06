@@ -3,7 +3,6 @@ package ccld_badge.real_ride_producer.controller;
 import ccld_badge.real_ride_producer.domain.RealRideEvent;
 import ccld_badge.real_ride_producer.producer.RealRideEventProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,6 @@ public class RealRideEventController {
 
     private final RealRideEventProducer rideEventProducer;
 
-    @Autowired
     public RealRideEventController(RealRideEventProducer rideEventProducer) {
         this.rideEventProducer = rideEventProducer;
     }
