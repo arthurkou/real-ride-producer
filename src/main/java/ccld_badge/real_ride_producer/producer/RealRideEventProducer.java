@@ -1,4 +1,4 @@
-package ccld_badge.real_ride_producer.service;
+package ccld_badge.real_ride_producer.producer;
 
 import static ccld_badge.real_ride_producer.config.RealRideProducerConfig.ATTEMPT_INTERVAL_IN_SECONDS;
 import static ccld_badge.real_ride_producer.config.RealRideProducerConfig.MAX_ATTEMPTS_FOR_RETRY;

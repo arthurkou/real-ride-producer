@@ -1,7 +1,7 @@
 package ccld_badge.real_ride_producer.controller;
 
 import ccld_badge.real_ride_producer.domain.RealRideEvent;
-import ccld_badge.real_ride_producer.service.RealRideEventProducer;
+import ccld_badge.real_ride_producer.producer.RealRideEventProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
