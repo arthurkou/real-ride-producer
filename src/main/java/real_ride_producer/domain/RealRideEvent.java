@@ -1,4 +1,4 @@
-package ccld_badge.real_ride_producer.domain;
+package real_ride_producer.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
@@ -12,12 +12,12 @@ public class RealRideEvent {
     private Integer passengerID;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
-    private LocalDateTime pickupTime;
+    private String pickupTime;
 
     private String pickupLocation;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
-    private LocalDateTime arrivalTime;
+    private String arrivalTime;
 
     private String arrivalLocation;
     private RideStatusType status;

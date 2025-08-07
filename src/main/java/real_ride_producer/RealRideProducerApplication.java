@@ -1,4 +1,4 @@
-package ccld_badge.real_ride_producer;
+package real_ride_producer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

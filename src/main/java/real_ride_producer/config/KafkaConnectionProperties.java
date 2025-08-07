@@ -1,4 +1,4 @@
-package ccld_badge.real_ride_producer.config;
+package real_ride_producer.config;
 
 import static org.apache.kafka.clients.producer.ProducerConfig.BOOTSTRAP_SERVERS_CONFIG;
 import static org.apache.kafka.common.config.SaslConfigs.SASL_MECHANISM;
@@ -21,7 +21,6 @@ public class KafkaConnectionProperties {
     }
 
     private List<String> getBootstrapServer() {
-        // return serverUrl + ":" + serverPort;
         return List.of("localhost:9092", "localhost:9093", "localhost:9094");
     }
 }

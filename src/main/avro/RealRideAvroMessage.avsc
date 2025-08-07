@@ -1,0 +1,15 @@
+{
+  "namespace": "real_ride.avro.messages",
+  "type": "record",
+  "name": "RealRideAvroMessage",
+  "fields": [
+    {"name": "rideID", "type": "int"},
+    {"name": "driverID", "type": "int"},
+    {"name": "passengerID", "type": "int"},
+    {"name": "pickupTime", "type": "string"},
+    {"name": "pickupLocation", "type": "string"},
+    {"name": "arrivalTime", "type": "string"},
+    {"name": "arrivalLocation", "type": "string"},
+    {"name": "status", "type": "string"}
+  ]
+}

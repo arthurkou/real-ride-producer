@@ -1,13 +1,12 @@
-package ccld_badge.real_ride_producer.controller;
+package real_ride_producer.controller;
 
-import ccld_badge.real_ride_producer.domain.RealRideEvent;
-import ccld_badge.real_ride_producer.producer.RealRideEventProducer;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import real_ride_producer.domain.RealRideEvent;
+import real_ride_producer.producer.RealRideEventProducer;
 
 @RestController
 public class RealRideEventController {
@@ -19,9 +18,8 @@ public class RealRideEventController {
     }
 
     @PostMapping("/real-rider")
-    public ResponseEntity<RealRideEvent> postRealRideEvent(@RequestBody RealRideEvent realRideEvent)
-            throws JsonProcessingException {
+    public ResponseEntity<RealRideEvent> postRealRideEvent(@RequestBody RealRideEvent realRideEvent) {
         rideEventProducer.send(realRideEvent);
-        return ResponseEntity.status(HttpStatus.CREATED).body(realRideEvent);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
