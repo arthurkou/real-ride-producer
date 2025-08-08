@@ -1,6 +1,8 @@
 package real_ride_producer.producer;
 
 import java.net.ConnectException;
+import java.time.Instant;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -37,9 +39,9 @@ public class RealRideEventProducer {
         RealRideAvroMessage avroMessage = new RealRideAvroMessage(realRideEvent.getRideID(),
                 realRideEvent.getDriverID(),
                 realRideEvent.getPassengerID(),
-                realRideEvent.getPickupTime(),
+                Instant.ofEpochMilli(realRideEvent.getPickupTime()),
                 realRideEvent.getPickupLocation(),
-                realRideEvent.getArrivalTime(),
+                Instant.ofEpochMilli(realRideEvent.getArrivalTime()),
                 realRideEvent.getArrivalLocation(), rideStatus);
 
         Integer key = realRideEvent.getRideID();

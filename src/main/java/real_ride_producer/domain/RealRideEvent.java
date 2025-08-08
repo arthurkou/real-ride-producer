@@ -12,15 +12,9 @@ public class RealRideEvent {
     private Integer rideID;
     private Integer driverID;
     private Integer passengerID;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
-    private Instant pickupTime;
-
+    private Long pickupTime;
     private String pickupLocation;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
-    private Instant arrivalTime;
-
+    private Long arrivalTime;
     private String arrivalLocation;
     private RideStatusType status;
 }
