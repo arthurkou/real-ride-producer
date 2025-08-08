@@ -11,6 +11,7 @@ import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Component;
 import real_ride.avro.messages.RealRideAvroMessage;
+import real_ride.avro.messages.RealRideStatusAvro;
 import real_ride_producer.domain.RealRideEvent;
 import static real_ride_producer.config.RealRideProducerConfig.ATTEMPT_INTERVAL_IN_SECONDS;
 import static real_ride_producer.config.RealRideProducerConfig.MAX_ATTEMPTS_FOR_RETRY;
@@ -31,17 +32,18 @@ public class RealRideEventProducer {
             maxAttempts = MAX_ATTEMPTS_FOR_RETRY)
     public void send(RealRideEvent realRideEvent) {
 
+        // Bind to Avro schema
+        RealRideStatusAvro rideStatus = realRideEvent.getStatus() == null ? null : RealRideStatusAvro.valueOf(realRideEvent.getStatus().name());
         RealRideAvroMessage avroMessage = new RealRideAvroMessage(realRideEvent.getRideID(),
                 realRideEvent.getDriverID(),
                 realRideEvent.getPassengerID(),
                 realRideEvent.getPickupTime(),
                 realRideEvent.getPickupLocation(),
                 realRideEvent.getArrivalTime(),
-                realRideEvent.getArrivalLocation(), realRideEvent.getStatus().toString());
+                realRideEvent.getArrivalLocation(), rideStatus);
 
         Integer key = realRideEvent.getRideID();
-        ProducerRecord<Integer, RealRideAvroMessage> producerRecord =
-                new ProducerRecord<>(topic, null, key, avroMessage);
+        ProducerRecord<Integer, RealRideAvroMessage> producerRecord =  new ProducerRecord<>(topic, null, key, avroMessage);
 
         kafkaTemplate
                 .send(producerRecord)

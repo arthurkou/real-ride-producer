@@ -6,10 +6,20 @@
     {"name": "rideID", "type": "int"},
     {"name": "driverID", "type": "int"},
     {"name": "passengerID", "type": "int"},
-    {"name": "pickupTime", "type": "string"},
+    {"name": "pickupTime", "type": {
+      "type": "long",
+        "logicalType": "timestamp-millis"
+    }},
     {"name": "pickupLocation", "type": "string"},
-    {"name": "arrivalTime", "type": "string"},
+    {"name": "arrivalTime", "type": {
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    }},
     {"name": "arrivalLocation", "type": "string"},
-    {"name": "status", "type": "string"}
+    {"name": "status",
+      "type": {"type": "enum",
+                  "name":  "RealRideStatusAvro",
+                  "symbols": ["WAITING", "STARTED", "FINISHED"]},
+      "doc": "Current status of the ride."}
   ]
 }
